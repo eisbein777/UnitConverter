@@ -1,0 +1,75 @@
+﻿@model  UnitConverter.Dto.Convert
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<style>
+
+    .divspace {
+    margin-top:25px;
+    }
+</style>
+
+@using (Html.BeginForm("ConvertTemp", "Home", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-2">
+            @Html.Label("inputtemp", "Input Temperature")
+            @Html.TextBoxFor(m => m.inputtemp, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Input Unit", "Input Unit")
+            @Html.DropDownList("inputunit",
+             EnumHelper.GetSelectList(typeof(Temperature)),
+             new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Output Unit", "Output Unit")
+            @Html.DropDownList("outputunit",
+                 EnumHelper.GetSelectList(typeof(Temperature)),
+                 new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            <div class="divspace"></div>
+            <input class="btn btn-primary btn-sm" type="submit" value="Convert" />
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Outputtemp", "Output Temp")
+            @Html.TextBoxFor(m => m.outputtemp, new { @class = "form-control" })
+        </div>
+    </div>
+    }
+
+    @using (Html.BeginForm("ConvertVolume", "Home", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-2">
+                @Html.Label("inputvolume", "Input Volume")
+                @Html.TextBoxFor(m => m.inputvolume, new { @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Input Unit", "Input Unit")
+                @Html.DropDownList("inputunit",
+                 EnumHelper.GetSelectList(typeof(Volume)),
+                 new { @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Output Unit", "Output Unit")
+                @Html.DropDownList("outputunit",
+                     EnumHelper.GetSelectList(typeof(Volume)),
+                     new { @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                <div class="divspace"></div>
+                <input class="btn btn-primary btn-sm" type="submit" value="Convert" />
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Outputtemp", "Output Volume")
+                @Html.TextBoxFor(m => m.outputvolume, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+
+    }
